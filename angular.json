@@ -3,6 +3,8 @@
   "projects": {
     "flow-management": "apps/flow-management",
     "flow-management-e2e": "apps/flow-management-e2e",
-    "nest-api": "apps/nest-api"
+    "nest-api": "apps/nest-api",
+    "pages": "libs/pages",
+    "system-flow": "libs/system-flow"
   }
 }

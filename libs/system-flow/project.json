@@ -1,0 +1,23 @@
+{
+  "root": "libs/system-flow",
+  "sourceRoot": "libs/system-flow/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/system-flow/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/system-flow"],
+      "options": {
+        "jestConfig": "libs/system-flow/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

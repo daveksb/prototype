@@ -15,6 +15,6 @@ model system_flow {
   id          String @id @default(cuid())
   flow_name   String
   flow_order  Int
-  page        Int
+  page        String
   approval_id Int
 }
