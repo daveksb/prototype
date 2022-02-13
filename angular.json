@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "flow-management": "apps/flow-management",
+    "flow-management-e2e": "apps/flow-management-e2e"
+  }
+}

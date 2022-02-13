@@ -1,0 +1,28 @@
+{
+  "root": "apps/flow-management-e2e",
+  "sourceRoot": "apps/flow-management-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/flow-management-e2e/cypress.json",
+        "devServerTarget": "flow-management:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "flow-management:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/flow-management-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["flow-management"]
+}
