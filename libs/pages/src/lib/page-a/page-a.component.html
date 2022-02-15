@@ -1,7 +1,17 @@
-<section *ngFor="let flow of $flows | async">
-  <div>
-    <span>{{ flow.flow_name }}</span>
-    <span>{{ flow.page }}</span>
-    <!-- <button>Add flow</button> -->
-  </div>
-</section>
+<h3>This is flow_a, order 1, page_a</h3>
+<div class="page_container">
+  <table class="flow">
+    <tr>
+      <th>flow name</th>
+      <th>order</th>
+      <th>display page</th>
+    </tr>
+    <tr *ngFor="let flow of $flows | async">
+      <td>{{ flow.flow_name }}</td>
+      <td>{{ flow.flow_order }}</td>
+      <td>{{ flow.page }}</td>
+    </tr>
+  </table>
+
+  <button class="button" (click)="goToNextPage()">Next Step</button>
+</div>

@@ -1,1 +1,18 @@
-<p>page-b works!</p>
+<h3>This is flow_a, order 2, page_b</h3>
+<div class="page_container">
+  <table class="flow">
+    <tr>
+      <th>flow name</th>
+      <th>order</th>
+      <th>display page</th>
+    </tr>
+    <tr *ngFor="let flow of $flows | async">
+      <td>{{ flow.flow_name }}</td>
+      <td>{{ flow.flow_order }}</td>
+      <td>{{ flow.page }}</td>
+    </tr>
+  </table>
+
+  <button class="button" (click)="goToPrevPage()">Previous Step</button>
+  <button class="button" (click)="goToNextPage()">Next Step</button>
+</div>
