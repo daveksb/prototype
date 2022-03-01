@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { system_flow } from '@prisma/client';
+import { SystemFlow } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { SystemFlowService } from '../system-flow.service';
 
@@ -10,7 +10,7 @@ import { SystemFlowService } from '../system-flow.service';
   styleUrls: ['./page-c.component.scss'],
 })
 export class PageCComponent implements OnInit {
-  public $flows: Observable<system_flow[]> | null = null;
+  public $flows: Observable<SystemFlow[]> | null = null;
 
   constructor(
     public systemFlowService: SystemFlowService,

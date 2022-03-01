@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { system_flow } from '@prisma/client';
+import { SystemFlow } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,9 +11,11 @@ export class SystemFlowService {
 
   constructor(private readonly http: HttpClient) {}
 
-  public getflows(): Observable<system_flow[]> {
-    {
-      return this.http.get<system_flow[]>(`${this.API_URL}/system-flow`);
-    }
+  public getflows(): Observable<SystemFlow[]> {
+    return this.http.get<SystemFlow[]>(`${this.API_URL}/system-flow`);
+  }
+
+  public getNextPage(current_flow: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow`);
   }
 }

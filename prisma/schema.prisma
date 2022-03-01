@@ -11,10 +11,21 @@ datasource db {
   //url    = env("DATABASE_URL")
 }
 
-model system_flow {
+model SystemFlow {
   id          String @id @default(cuid())
   flow_name   String
   flow_order  Int
   page        String
-  approval_id Int
+  service_id  String
+}
+
+model Service {
+  id          String @id @default(cuid())
+  details     String
+  approval_id String
+}
+
+model Approval {
+  id          String @id @default(cuid())
+  approver    String
 }
