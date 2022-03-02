@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/flow-management",
         "index": "apps/flow-management/src/index.html",
@@ -18,8 +20,15 @@
           "apps/flow-management/src/favicon.ico",
           "apps/flow-management/src/assets"
         ],
-        "styles": ["apps/flow-management/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/flow-management/src/styles.scss",
+          "./node_modules/bootstrap/dist/css/bootstrap.css"
+        ],
+        "scripts": [
+          "node_modules/jquery/dist/jquery.min.js",
+          "node_modules/bootstrap/dist/js/bootstrap.min.js"
+        ]
       },
       "configurations": {
         "production": {
@@ -83,7 +92,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/flow-management"],
+      "outputs": [
+        "coverage/apps/flow-management"
+      ],
       "options": {
         "jestConfig": "apps/flow-management/jest.config.js",
         "passWithNoTests": true

@@ -6,6 +6,9 @@ import { PageCComponent } from './page-c/page-c.component';
 import { PageDComponent } from './page-d/page-d.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+
 const routes: Routes = [
   { path: 'page-a', component: PageAComponent },
   { path: 'page-b', component: PageBComponent },
@@ -15,7 +18,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule.forChild(routes),
+    MatStepperModule,
+    MatButtonModule,
+  ],
   declarations: [
     PageAComponent,
     PageBComponent,

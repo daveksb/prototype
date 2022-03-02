@@ -26,6 +26,6 @@ export class PageCComponent implements OnInit {
   }
 
   goToNextPage() {
-    this.router.navigate(['/page-a']);
+    this.router.navigate(['/page-d']);
   }
 }

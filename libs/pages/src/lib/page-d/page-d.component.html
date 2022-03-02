@@ -1,1 +1,27 @@
-<p>page-d works!</p>
+<div class="container">
+  <div class="page-container">
+    <h3 class="mt-5 d-flex justify-content-center">สมัครสมาชิก</h3>
+
+    <mat-horizontal-stepper>
+      <mat-step> </mat-step>
+      <mat-step> </mat-step>
+      <mat-step> </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">รหัสเข้าใช้งาน</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">ยืนยันรหัสเข้าใช้งาน</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" />
+    </div>
+    <div class="d-flex justify-content-around mt-3">
+      <button (click)="goToNextPage()" type="button" class="btn btn-primary">
+        ยืนยันรหัส
+      </button>
+    </div>
+  </form>
+</div>

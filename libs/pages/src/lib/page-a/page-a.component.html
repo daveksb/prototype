@@ -1,3 +1,32 @@
+<div class="container">
+  <div class="page-container">
+    <h3 class="d-flex justify-content-center mt-5">สมัครสมาชิก</h3>
+
+    <mat-horizontal-stepper>
+      <mat-step [editable]="false"> </mat-step>
+      <mat-step> </mat-step>
+      <mat-step> </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">เลขที่บัตรประชาชน</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">เลขที่หลังบัตรประชาชน</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" />
+    </div>
+    <div class="d-flex justify-content-around mt-3">
+      <button type="button" class="btn btn-secondary">กลับ</button>
+      <button (click)="goToNextPage()" type="button" class="btn btn-primary">
+        ยืนยันตัวตน
+      </button>
+    </div>
+  </form>
+</div>
+
 <!-- <h3>This is flow_a, order 1, page_a</h3>
 <div class="page_container">
   <table class="flow">

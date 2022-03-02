@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesModule } from '@prototype/pages';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, PagesModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, PagesModule, RouterModule.forRoot(routes), BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
