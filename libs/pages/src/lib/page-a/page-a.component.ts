@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SystemFlow } from '@prisma/client';
+import { Service, SystemFlow } from '@prisma/client';
 import { Location } from '@angular/common';
 import { SystemFlowService } from '../system-flow.service';
+
+const flowId = 'cl050agj20198je01f73cunbi';
 
 @Component({
   selector: 'prototype-page-a',
@@ -12,7 +14,7 @@ import { SystemFlowService } from '../system-flow.service';
 export class PageAComponent implements OnInit {
   flow: SystemFlow | null = null;
   nextpage = '';
-  serviceStatus = false;
+  serviceData: Service | null = null;
 
   constructor(
     public service: SystemFlowService,
@@ -21,15 +23,14 @@ export class PageAComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.getNextPage('cl050agj20198je01f73cunbi').subscribe((res) => {
+    this.service.getNextPage(flowId).subscribe((res) => {
       this.flow = res;
     });
 
-    this.service
-      .getCurrentPage('cl050agj20198je01f73cunbi')
-      .subscribe((res) => {
-        //this.service = res.service_id
-      });
+    this.service.getCurrentPageService(flowId).subscribe((res) => {
+      this.serviceData = res;
+      console.log('service status = ', this.serviceData.details);
+    });
   }
 
   goToPrevPage() {

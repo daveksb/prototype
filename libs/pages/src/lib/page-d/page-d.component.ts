@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SystemFlow } from '@prisma/client';
+import { Service, SystemFlow } from '@prisma/client';
 import { SystemFlowService } from '../system-flow.service';
 import { Location } from '@angular/common';
+const flowId = 'cl09af12g0011ql017c6ky60g';
 
 @Component({
   selector: 'prototype-page-d',
@@ -12,6 +13,8 @@ import { Location } from '@angular/common';
 export class PageDComponent implements OnInit {
   flow: SystemFlow | null = null;
   nextpage = '';
+  serviceData: Service | null = null;
+
   constructor(
     public service: SystemFlowService,
     private router: Router,
@@ -19,9 +22,13 @@ export class PageDComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.getNextPage('cl09af12g0011ql017c6ky60g').subscribe((res) => {
+    this.service.getNextPage(flowId).subscribe((res) => {
       this.flow = res;
-      //console.log('flow = ', this.flow);
+    });
+
+    this.service.getCurrentPageService(flowId).subscribe((res) => {
+      this.serviceData = res;
+      console.log('service status = ', this.serviceData.details);
     });
   }
 

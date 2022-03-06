@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SystemFlow } from '@prisma/client';
+import { Service, SystemFlow } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,9 +31,9 @@ export class SystemFlowService {
     );
   }
 
-  public getServiceData(flowId: string): Observable<boolean> {
-    return this.http.get<boolean>(
-      `${this.API_URL}/system-flow/service-data/${flowId}`
+  public getCurrentPageService(flowId: string): Observable<Service> {
+    return this.http.get<Service>(
+      `${this.API_URL}/service-data/page/${flowId}`
     );
   }
 }

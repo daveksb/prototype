@@ -23,7 +23,12 @@
       <button (click)="goToPrevPage()" type="button" class="btn btn-secondary">
         กลับ
       </button>
-      <button (click)="goToNextPage()" type="button" class="btn btn-primary">
+      <button
+        (click)="goToNextPage()"
+        [disabled]="!serviceData?.details"
+        type="button"
+        class="btn btn-primary"
+      >
         ยืนยันตัวตน
       </button>
     </div>

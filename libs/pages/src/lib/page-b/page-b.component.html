@@ -20,7 +20,12 @@
       <button type="button" (click)="goToPrevPage()" class="btn btn-secondary">
         กลับ
       </button>
-      <button type="button" (click)="goToNextPage()" class="btn btn-primary">
+      <button
+        type="button"
+        [disabled]="!serviceData?.details"
+        (click)="goToNextPage()"
+        class="btn btn-primary"
+      >
         ส่งรหัส OTP
       </button>
     </div>
