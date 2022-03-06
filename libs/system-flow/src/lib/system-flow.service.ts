@@ -37,7 +37,12 @@ export class SystemFlowService {
 
     return prisma.systemFlow.findFirst({
       where: {
-        flow_order: currentRow.flow_order + 1,
+        flow_order: {
+          gt: currentRow.flow_order,
+        },
+      },
+      orderBy: {
+        flow_order: 'asc',
       },
     });
   }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SystemFlow } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { SystemFlowService } from '../system-flow.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'prototype-page-b',
@@ -13,7 +14,11 @@ export class PageBComponent implements OnInit {
   flow: SystemFlow | null = null;
   nextpage = '';
 
-  constructor(public service: SystemFlowService, private router: Router) {}
+  constructor(
+    public service: SystemFlowService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     this.service.getNextPage('cl050agj20200je01hrgmwxg4').subscribe((res) => {
@@ -23,7 +28,7 @@ export class PageBComponent implements OnInit {
   }
 
   goToPrevPage() {
-    this.router.navigate(['/page-a']);
+    this.location.back();
   }
 
   goToNextPage() {
