@@ -19,9 +19,29 @@
       <input type="text" class="form-control" id="formGroupExampleInput2" />
     </div>
     <div class="d-flex justify-content-around mt-3">
+      <button (click)="goToFirstPage()" type="button" class="btn btn-secondary">
+        กลับหน้าแรก
+      </button>
       <button (click)="goToNextPage()" type="button" class="btn btn-primary">
         ยืนยันรหัส
       </button>
     </div>
   </form>
+
+  <div class="flow-container">
+    <table class="flow">
+      <tr>
+        <th>flow name</th>
+        <th>order</th>
+        <th>display page</th>
+        <th>service id</th>
+      </tr>
+      <tr>
+        <td>{{ flow?.flow_name }}</td>
+        <td>{{ flow?.flow_order }}</td>
+        <td>{{ flow?.page }}</td>
+        <td>{{ flow?.service_id }}</td>
+      </tr>
+    </table>
+  </div>
 </div>

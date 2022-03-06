@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import { PageIntroComponent } from './page-intro/page-intro.component';
 
 const routes: Routes = [
+  { path: 'page-intro', component: PageIntroComponent },
   { path: 'page-a', component: PageAComponent },
   { path: 'page-b', component: PageBComponent },
   { path: 'page-c', component: PageCComponent },
   { path: 'page-d', component: PageDComponent },
-  { path: '**', redirectTo: 'page-a' },
+  { path: '**', redirectTo: 'page-intro' },
 ];
 
 @NgModule({
@@ -30,6 +32,7 @@ const routes: Routes = [
     PageBComponent,
     PageCComponent,
     PageDComponent,
+    PageIntroComponent,
   ],
   exports: [PageAComponent, PageBComponent, PageCComponent, PageDComponent],
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemFlow } from '@prisma/client';
-import { Observable } from 'rxjs';
 import { SystemFlowService } from '../system-flow.service';
 
 @Component({
@@ -10,15 +9,15 @@ import { SystemFlowService } from '../system-flow.service';
   styleUrls: ['./page-c.component.scss'],
 })
 export class PageCComponent implements OnInit {
-  public $flows: Observable<SystemFlow[]> | null = null;
+  flow: SystemFlow | null = null;
 
-  constructor(
-    public systemFlowService: SystemFlowService,
-    private router: Router
-  ) {}
+  constructor(public service: SystemFlowService, private router: Router) {}
 
   ngOnInit(): void {
-    this.$flows = this.systemFlowService.getflows();
+    this.service.getFlow('cl050agj20202je01u2fzziej').subscribe((res) => {
+      this.flow = res;
+      console.log('flow = ', this.flow);
+    });
   }
 
   goToPrevPage() {

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="flow-container">
+    <table class="flow">
+      <tr>
+        <th>flow id</th>
+        <th>flow name</th>
+        <th>order</th>
+        <th>display page</th>
+        <th>service id</th>
+      </tr>
+      <tr *ngFor="let flow of $flows | async">
+        <td>{{ flow.id }}</td>
+        <td>{{ flow.flow_name }}</td>
+        <td>{{ flow.flow_order }}</td>
+        <td>{{ flow.page }}</td>
+        <td>{{ flow.service_id }}</td>
+      </tr>
+    </table>
+
+    <button (click)="goToNextPage()" type="button" class="btn btn-primary mt-3">
+      Next
+    </button>
+  </div>
+</div>

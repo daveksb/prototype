@@ -9,10 +9,10 @@ export class SystemFlowService {
     return prisma.systemFlow.findMany();
   }
 
-  public getSystemFlow(flowName: string): Promise<SystemFlow> {
+  public getSystemFlow(flowId: string): Promise<SystemFlow> {
     return prisma.systemFlow.findFirst({
       where: {
-        flow_name: flowName,
+        id: flowId,
       },
     });
   }

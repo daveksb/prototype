@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemFlow } from '@prisma/client';
-import { Observable } from 'rxjs';
 import { SystemFlowService } from '../system-flow.service';
 
 @Component({
@@ -10,22 +9,26 @@ import { SystemFlowService } from '../system-flow.service';
   styleUrls: ['./page-d.component.scss'],
 })
 export class PageDComponent implements OnInit {
-  public $flows: Observable<SystemFlow[]> | null = null;
+  flow: SystemFlow | null = null;
 
-  constructor(
-    public systemFlowService: SystemFlowService,
-    private router: Router
-  ) {}
+  constructor(public service: SystemFlowService, private router: Router) {}
 
   ngOnInit(): void {
-    this.$flows = this.systemFlowService.getflows();
+    this.service.getFlow('cl09af12g0011ql017c6ky60g').subscribe((res) => {
+      this.flow = res;
+      console.log('flow = ', this.flow);
+    });
   }
 
   goToPrevPage() {
-    this.router.navigate(['/page-b']);
+    this.router.navigate(['/page-c']);
   }
 
   goToNextPage() {
-    this.router.navigate(['/page-a']);
+    //this.router.navigate(['/page-a']);
+  }
+
+  goToFirstPage() {
+    this.router.navigate(['/page-intro']);
   }
 }

@@ -9,4 +9,9 @@ export class SystemFlowController {
   public getSystemFlows() {
     return this.systemFlowService.getSystemFlows();
   }
+
+  @Get('current')
+  public getSystemFlow(flowId: string) {
+    return this.systemFlowService.getSystemFlow(flowId);
+  }
 }

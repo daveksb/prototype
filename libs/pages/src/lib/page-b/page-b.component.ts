@@ -10,15 +10,15 @@ import { SystemFlowService } from '../system-flow.service';
   styleUrls: ['./page-b.component.scss'],
 })
 export class PageBComponent implements OnInit {
-  public $flows: Observable<SystemFlow[]> | null = null;
+  flow: SystemFlow | null = null;
 
-  constructor(
-    public systemFlowService: SystemFlowService,
-    private router: Router
-  ) {}
+  constructor(public service: SystemFlowService, private router: Router) {}
 
   ngOnInit(): void {
-    this.$flows = this.systemFlowService.getflows();
+    this.service.getFlow('cl050agj20200je01hrgmwxg4').subscribe((res) => {
+      this.flow = res;
+      console.log('flow = ', this.flow);
+    });
   }
 
   goToPrevPage() {

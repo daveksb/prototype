@@ -15,7 +15,11 @@ export class SystemFlowService {
     return this.http.get<SystemFlow[]>(`${this.API_URL}/system-flow`);
   }
 
-  public getNextPage(current_flow: string): Observable<SystemFlow> {
-    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow`);
+  public getFlow(flowId: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow/current`);
   }
+
+  /* public getNextPage(current_flow: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow`);
+  } */
 }

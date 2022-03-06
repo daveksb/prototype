@@ -3,14 +3,12 @@ import {
   SystemFlowController,
   SystemFlowService,
 } from '@prototype/system-flow';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Module({
-  imports: [BrowserModule, BrowserAnimationsModule],
+  imports: [],
   controllers: [AppController, SystemFlowController],
   providers: [AppService, SystemFlowService],
 })
