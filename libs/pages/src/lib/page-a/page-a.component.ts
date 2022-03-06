@@ -11,13 +11,14 @@ import { SystemFlowService } from '../system-flow.service';
 })
 export class PageAComponent implements OnInit {
   flow: SystemFlow | null = null;
+  nextpage = '';
 
   constructor(public service: SystemFlowService, private router: Router) {}
 
   ngOnInit(): void {
-    this.service.getFlow('cl050agj20198je01f73cunbi').subscribe((res) => {
+    this.service.getNextPage('cl050agj20198je01f73cunbi').subscribe((res) => {
       this.flow = res;
-      console.log('flow = ', this.flow);
+      //console.log('flow = ', this.flow);
     });
   }
 
@@ -26,6 +27,6 @@ export class PageAComponent implements OnInit {
   }
 
   goToNextPage() {
-    this.router.navigate(['/page-b']);
+    this.router.navigate([`/${this.flow?.page}`]);
   }
 }

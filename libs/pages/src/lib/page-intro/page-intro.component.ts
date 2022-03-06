@@ -10,15 +10,22 @@ import { SystemFlowService } from '../system-flow.service';
   styleUrls: ['./page-intro.component.scss'],
 })
 export class PageIntroComponent implements OnInit {
-  public $flows: Observable<SystemFlow[]> | null = null;
+  $flows: Observable<SystemFlow[]> | null = null;
+
+  firstPage: SystemFlow | null = null;
 
   constructor(public service: SystemFlowService, private router: Router) {}
 
   ngOnInit(): void {
     this.$flows = this.service.getflows();
+
+    this.service.getFirstPage('login').subscribe((res) => {
+      this.firstPage = res;
+      console.log('first page = ', this.firstPage);
+    });
   }
 
-  goToNextPage() {
-    this.router.navigate(['/page-a']);
+  goToFirstPage() {
+    this.router.navigate([`/${this.firstPage?.page}`]);
   }
 }

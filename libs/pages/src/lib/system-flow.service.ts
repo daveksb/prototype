@@ -15,11 +15,19 @@ export class SystemFlowService {
     return this.http.get<SystemFlow[]>(`${this.API_URL}/system-flow`);
   }
 
-  public getFlow(flowId: string): Observable<SystemFlow> {
-    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow/current`);
+  public getCurrentPage(flowId: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow/${flowId}`);
   }
 
-  /* public getNextPage(current_flow: string): Observable<SystemFlow> {
-    return this.http.get<SystemFlow>(`${this.API_URL}/system-flow`);
-  } */
+  public getNextPage(currentId: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(
+      `${this.API_URL}/system-flow/next/${currentId}`
+    );
+  }
+
+  public getFirstPage(flowName: string): Observable<SystemFlow> {
+    return this.http.get<SystemFlow>(
+      `${this.API_URL}/system-flow/first-page/${flowName}`
+    );
+  }
 }

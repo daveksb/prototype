@@ -1,17 +1,27 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { SystemFlowService } from './system-flow.service';
 
 @Controller('system-flow')
 export class SystemFlowController {
-  constructor(private systemFlowService: SystemFlowService) {}
+  constructor(private service: SystemFlowService) {}
 
   @Get()
   public getSystemFlows() {
-    return this.systemFlowService.getSystemFlows();
+    return this.service.getSystemFlows();
   }
 
-  @Get('current')
-  public getSystemFlow(flowId: string) {
-    return this.systemFlowService.getSystemFlow(flowId);
+  @Get(':id')
+  public getCurrentPage(@Param('id') id: string) {
+    return this.service.getCurrentPage(id);
+  }
+
+  @Get('/next/:id')
+  public getNextPage(@Param('id') id: string) {
+    return this.service.getNextPage(id);
+  }
+
+  @Get('/first-page/:name')
+  public getFirstPage(@Param('name') flowName: string) {
+    return this.service.getFirstPage(flowName);
   }
 }

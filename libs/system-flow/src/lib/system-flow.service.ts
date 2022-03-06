@@ -9,10 +9,35 @@ export class SystemFlowService {
     return prisma.systemFlow.findMany();
   }
 
-  public getSystemFlow(flowId: string): Promise<SystemFlow> {
+  public getFirstPage(flowName: string): Promise<SystemFlow> {
+    return prisma.systemFlow.findFirst({
+      where: {
+        flow_name: flowName,
+      },
+      orderBy: {
+        flow_order: 'asc',
+      },
+    });
+  }
+
+  public getCurrentPage(flowId: string): Promise<SystemFlow> {
     return prisma.systemFlow.findFirst({
       where: {
         id: flowId,
+      },
+    });
+  }
+
+  async getNextPage(flowId: string): Promise<SystemFlow> {
+    const currentRow = await prisma.systemFlow.findUnique({
+      where: {
+        id: flowId,
+      },
+    });
+
+    return prisma.systemFlow.findFirst({
+      where: {
+        flow_order: currentRow.flow_order + 1,
       },
     });
   }
