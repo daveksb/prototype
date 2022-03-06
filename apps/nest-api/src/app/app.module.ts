@@ -1,5 +1,9 @@
 import { Module } from '@nestjs/common';
 import {
+  ServiceDataController,
+  ServiceDataService,
+} from '@prototype/service-data';
+import {
   SystemFlowController,
   SystemFlowService,
 } from '@prototype/system-flow';
@@ -9,7 +13,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [],
-  controllers: [AppController, SystemFlowController],
-  providers: [AppService, SystemFlowService],
+  controllers: [AppController, SystemFlowController, ServiceDataController],
+  providers: [AppService, SystemFlowService, ServiceDataService],
 })
 export class AppModule {}

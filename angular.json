@@ -5,6 +5,7 @@
     "flow-management-e2e": "apps/flow-management-e2e",
     "nest-api": "apps/nest-api",
     "pages": "libs/pages",
+    "service-data": "libs/service-data",
     "system-flow": "libs/system-flow"
   }
 }

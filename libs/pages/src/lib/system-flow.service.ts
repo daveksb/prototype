@@ -30,4 +30,10 @@ export class SystemFlowService {
       `${this.API_URL}/system-flow/first-page/${flowName}`
     );
   }
+
+  public getServiceData(flowId: string): Observable<boolean> {
+    return this.http.get<boolean>(
+      `${this.API_URL}/system-flow/service-data/${flowId}`
+    );
+  }
 }

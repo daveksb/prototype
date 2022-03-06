@@ -21,7 +21,7 @@ export class PageDComponent implements OnInit {
   ngOnInit(): void {
     this.service.getNextPage('cl09af12g0011ql017c6ky60g').subscribe((res) => {
       this.flow = res;
-      console.log('flow = ', this.flow);
+      //console.log('flow = ', this.flow);
     });
   }
 

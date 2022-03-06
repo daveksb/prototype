@@ -12,6 +12,7 @@ import { SystemFlowService } from '../system-flow.service';
 export class PageAComponent implements OnInit {
   flow: SystemFlow | null = null;
   nextpage = '';
+  serviceStatus = false;
 
   constructor(
     public service: SystemFlowService,
@@ -22,8 +23,13 @@ export class PageAComponent implements OnInit {
   ngOnInit(): void {
     this.service.getNextPage('cl050agj20198je01f73cunbi').subscribe((res) => {
       this.flow = res;
-      //console.log('flow = ', this.flow);
     });
+
+    this.service
+      .getCurrentPage('cl050agj20198je01f73cunbi')
+      .subscribe((res) => {
+        //this.service = res.service_id
+      });
   }
 
   goToPrevPage() {

@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@prototype/pages": ["libs/pages/src/index.ts"],
+      "@prototype/service-data": ["libs/service-data/src/index.ts"],
       "@prototype/system-flow": ["libs/system-flow/src/index.ts"]
     }
   },

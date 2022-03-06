@@ -22,7 +22,7 @@ export class PageCComponent implements OnInit {
   ngOnInit(): void {
     this.service.getNextPage('cl050agj20202je01u2fzziej').subscribe((res) => {
       this.flow = res;
-      console.log('flow = ', this.flow);
+      //console.log('flow = ', this.flow);
     });
   }
 
